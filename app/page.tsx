@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Home() { // 主页
   return (
     // <div>
@@ -52,21 +54,24 @@ export default function Home() { // 主页
       </div>
 
       {/* 功能卡1 */}
-      <div className="
-        max-w-md              /* 限制最大宽度 */
-        mx-auto               /* 水平居中 */
-        my-3                 /* 上下外边距 */
-        p-8                   /* 内边距 */
-        bg-gradient-to-tr from-blue-500 via-blue-600 to-purple-600 /* 渐变背景 */
-        text-white            /* 字体颜色 */
-        rounded-3xl           /* 超大圆角 */
-        hover:scale-105       /* 悬停放大 */
-        transition-transform  /* 动画过渡 */
-        cursor-pointer        /* 鼠标手型 */
-      ">
-        <h2 className="text-2xl font-bold mt-2">Log</h2>
-        <p className="font-mono text-sm opacity-80">Log income and outcome.</p>
-      </div>
+      <Link href="/money_track">
+          <div className="
+            max-w-md              /* 限制最大宽度 */
+            mx-auto               /* 水平居中 */
+            my-3                 /* 上下外边距 */
+            p-8                   /* 内边距 */
+            bg-gradient-to-tr from-blue-500 via-blue-600 to-purple-600 /* 渐变背景 */
+            text-white            /* 字体颜色 */
+            rounded-3xl           /* 超大圆角 */
+            hover:scale-105       /* 悬停放大 */
+            transition-transform  /* 动画过渡 */
+            cursor-pointer        /* 鼠标手型 */
+          ">
+            <h2 className="text-2xl font-bold mt-2">Money Track</h2>
+            <p className="font-mono text-sm opacity-80">Log an income or expense.</p>
+          </div>
+      </Link>
+      
 
       {/* 功能卡2 */}
       <div className="
