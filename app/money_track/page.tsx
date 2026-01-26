@@ -13,7 +13,7 @@ const lusitana = Lusitana({
 });
 
 
-export default function AddPage() {
+export default function MoneyTrackPage() {
   const router = useRouter();
 
   return (
