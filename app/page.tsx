@@ -33,7 +33,7 @@ export default function Home() { // 主页
         mx-auto               /* 水平居中 */
         my-0                 /* 上下外边距 */
         p-7                  /* 内边距 */
-        bg-gradient-to-r from-cyan-500 to-blue-500 /* 渐变背景 */
+        bg-gradient-to-r from-cyan-500 to-blue-00 /* 渐变背景 */
         text-white            /* 字体颜色 */
         rounded-5xl           /* 超大圆角 */
       ">
@@ -60,12 +60,19 @@ export default function Home() { // 主页
             mx-auto               /* 水平居中 */
             my-3                 /* 上下外边距 */
             p-8                   /* 内边距 */
-            bg-gradient-to-tr from-blue-500 via-blue-600 to-purple-600 /* 渐变背景 */
+            bg-gradient-to-tr from-blue-500 via-purple-600 to-purple-00 /* 渐变背景 */
             text-white            /* 字体颜色 */
             rounded-3xl           /* 超大圆角 */
+
+            /* PC端反馈 */
             hover:scale-105       /* 悬停放大 */
             transition-transform  /* 动画过渡 */
             cursor-pointer        /* 鼠标手型 */
+
+            /* 移动端反馈 */
+            transition-all duration-150 ease-in-out
+            active:scale-95 
+            active:brightness-110
           ">
             <h2 className="text-2xl font-bold mt-2">Money Track</h2>
             <p className="font-mono text-sm opacity-80">Log an income or expense.</p>
@@ -74,21 +81,31 @@ export default function Home() { // 主页
       
 
       {/* 功能卡2 */}
-      <div className="
-        max-w-md              /* 限制最大宽度 */
-        mx-auto               /* 水平居中 */
-        my-3                 /* 上下外边距 */
-        p-8                   /* 内边距 */
-        bg-gradient-to-br from-blue-600 to-indigo-700 /* 渐变背景 */
-        text-white            /* 字体颜色 */
-        rounded-3xl           /* 超大圆角 */
-        hover:scale-105       /* 悬停放大 */
-        transition-transform  /* 动画过渡 */
-        cursor-pointer        /* 鼠标手型 */
-      ">
-        <h2 className="text-2xl font-bold mt-2">Dashboard</h2>
-        <p className="font-mono text-sm opacity-80">Review your flow, including salary breakdown.</p>
-      </div>
+      <Link href="/dashboard">
+          <div className="
+            max-w-md              /* 限制最大宽度 */
+            mx-auto               /* 水平居中 */
+            my-3                 /* 上下外边距 */
+            p-8                   /* 内边距 */
+            bg-gradient-to-tr from-green-500 via-blue-600 to-purple-600 /* 渐变背景 */
+            text-white            /* 字体颜色 */
+            rounded-3xl           /* 超大圆角 */
+
+            /* PC端反馈 */
+            hover:scale-105       /* 悬停放大 */
+            transition-transform  /* 动画过渡 */
+            cursor-pointer        /* 鼠标手型 */
+
+            /* 移动端反馈 */
+            transition-all duration-150 ease-in-out
+            active:scale-95 
+            active:brightness-110
+          ">
+            <h2 className="text-2xl font-bold mt-2">Dashboard</h2>
+            <p className="font-mono text-sm opacity-80">Review your flow, including salary breakdown.</p>
+          </div>
+      </Link>
+      
 
       {/* 功能卡3 */}
       <div className="
@@ -96,12 +113,19 @@ export default function Home() { // 主页
         mx-auto               /* 水平居中 */
         my-3                 /* 上下外边距 */
         p-8                   /* 内边距 */
-        bg-gradient-to-br from-indigo-900 to-blue-900 /* 渐变背景 */
+        bg-gradient-to-tr from-pink-500 via-sky-600 to-green-600 /* 渐变背景 */
         text-white            /* 字体颜色 */
         rounded-3xl           /* 超大圆角 */
+
+        /* PC端反馈 */
         hover:scale-105       /* 悬停放大 */
         transition-transform  /* 动画过渡 */
         cursor-pointer        /* 鼠标手型 */
+
+        /* 移动端反馈 */
+        transition-all duration-150 ease-in-out
+        active:scale-95 
+        active:brightness-110
       ">
         <h2 className="text-2xl font-bold mt-2">Analysis & Visualization</h2>
         <p className="font-mono text-sm opacity-80">Data analysis and Charting.</p>
@@ -113,12 +137,19 @@ export default function Home() { // 主页
         mx-auto               /* 水平居中 */
         my-3                 /* 上下外边距 */
         p-8                   /* 内边距 */
-        bg-gradient-to-br from-gray-900 to-indigo-950 /* 渐变背景 */
+        bg-gradient-to-tr from-blue-00 via-sky-800 to-pink-600 /* 渐变背景 */
         text-white            /* 字体颜色 */
         rounded-3xl           /* 超大圆角 */
+
+        /* PC端反馈 */
         hover:scale-105       /* 悬停放大 */
         transition-transform  /* 动画过渡 */
         cursor-pointer        /* 鼠标手型 */
+
+        /* 移动端反馈 */
+        transition-all duration-150 ease-in-out
+        active:scale-95 
+        active:brightness-110
       ">
         <h2 className="text-2xl font-bold mt-2">Settings</h2>
         <p className="font-mono text-sm opacity-80">Configure.</p>

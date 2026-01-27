@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/ui/globals.css";
+import { Lusitana } from 'next/font/google';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// 引入字体需要创建一个变量
+const lusitana = Lusitana({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-lusitana',
 });
 
 export const metadata: Metadata = {
   title: "Bill Notion",
-  description: "Notion Database Based Bill Log APP.",
+  description: "Notion-Powered Bill Tracker",
 };
 
 export default function RootLayout({
@@ -24,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${lusitana.className} antialiased`} >
         {children}
       </body>
     </html>
