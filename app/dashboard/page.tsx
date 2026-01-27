@@ -2,7 +2,7 @@ export default function DashboardPage() {
   return (
     <div className="
       /* 这里的 min-h 不需要再减 180px 了，因为父容器已经限制了范围 */
-      min-h-[82vh] w-full max-w-md mx-auto p-6 rounded-3xl shadow-lg 
+      min-h-[70vh] w-full max-w-md mx-auto p-5 rounded-3xl shadow-lg 
       bg-gradient-to-tl from-blue-100 via-slate-50 to-white
       dark:from-indigo-900 dark:via-slate-800 dark:to-slate-700
       transition-all duration-500 border border-white/60 dark:border-slate-700/50"
