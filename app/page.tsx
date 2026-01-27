@@ -86,8 +86,8 @@ export default function Home() { // 主页
         transition-transform  /* 动画过渡 */
         cursor-pointer        /* 鼠标手型 */
       ">
-        <h2 className="text-2xl font-bold mt-2">Salary</h2>
-        <p className="font-mono text-sm opacity-80">Salary Management.</p>
+        <h2 className="text-2xl font-bold mt-2">Dashboard</h2>
+        <p className="font-mono text-sm opacity-80">Review your flow, including salary breakdown.</p>
       </div>
 
       {/* 功能卡3 */}
@@ -103,8 +103,8 @@ export default function Home() { // 主页
         transition-transform  /* 动画过渡 */
         cursor-pointer        /* 鼠标手型 */
       ">
-        <h2 className="text-2xl font-bold mt-2">Vis</h2>
-        <p className="font-mono text-sm opacity-80">Visualization.</p>
+        <h2 className="text-2xl font-bold mt-2">Analysis & Visualization</h2>
+        <p className="font-mono text-sm opacity-80">Data analysis and Charting.</p>
       </div>
 
       {/* 功能卡4 */}
