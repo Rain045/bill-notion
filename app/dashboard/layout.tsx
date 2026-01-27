@@ -17,12 +17,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
             <div className="w-full flex-none md:w-64">
-
                 {/* 导航栏 */}
                 <SideNav />
-
             </div>
-            <div className="grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+
+            <div className="
+                grow w-full transition-all duration-300 py-3
+                /* 桌面端 (md) 适配 */
+                md:h-screen md:overflow-y-auto md:p-12 md:pb-6
+            "
+            >
+                {children}
+            </div>
         </div>
     </main>
     
