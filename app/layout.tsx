@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/ui/globals.css";
-import { Lusitana } from 'next/font/google';
-
-// 引入字体需要创建一个变量
-const lusitana = Lusitana({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-lusitana',
-});
+import { lusitana } from "@/app/ui/fonts";
 
 export const metadata: Metadata = {
   title: "Bill Notion",
