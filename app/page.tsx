@@ -58,7 +58,7 @@ export default function Home() { // 主页
           <div className="
             max-w-md              /* 限制最大宽度 */
             mx-auto               /* 水平居中 */
-            my-3                 /* 上下外边距 */
+            my-5                 /* 上下外边距 */
             p-8                   /* 内边距 */
             bg-gradient-to-tr from-blue-500 via-purple-600 to-purple-00 /* 渐变背景 */
             text-white            /* 字体颜色 */
@@ -85,7 +85,7 @@ export default function Home() { // 主页
           <div className="
             max-w-md              /* 限制最大宽度 */
             mx-auto               /* 水平居中 */
-            my-3                 /* 上下外边距 */
+            my-5                 /* 上下外边距 */
             p-8                   /* 内边距 */
             bg-gradient-to-tr from-green-500 via-blue-600 to-purple-600 /* 渐变背景 */
             text-white            /* 字体颜色 */
@@ -111,7 +111,7 @@ export default function Home() { // 主页
       <div className="
         max-w-md              /* 限制最大宽度 */
         mx-auto               /* 水平居中 */
-        my-3                 /* 上下外边距 */
+        my-5                 /* 上下外边距 */
         p-8                   /* 内边距 */
         bg-gradient-to-tr from-pink-500 via-sky-600 to-green-600 /* 渐变背景 */
         text-white            /* 字体颜色 */
@@ -135,7 +135,7 @@ export default function Home() { // 主页
       <div className="
         max-w-md              /* 限制最大宽度 */
         mx-auto               /* 水平居中 */
-        my-3                 /* 上下外边距 */
+        my-5                 /* 上下外边距 */
         p-8                   /* 内边距 */
         bg-gradient-to-tr from-blue-00 via-sky-800 to-pink-600 /* 渐变背景 */
         text-white            /* 字体颜色 */
