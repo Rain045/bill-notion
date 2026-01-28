@@ -25,7 +25,7 @@ export default function Home() { // 主页
 
     // 添加4个功能卡: 
     <main className="
-      /* 父级容器控制 功能卡间距 */
+      h-[100vh]
     "> 
       {/* APP名牌 */}
       <div className="
