@@ -66,7 +66,7 @@ export default function SettingsPage() {
 
   return (
     <div className="
-      h-[81vh] w-full max-w-md mx-auto p-1 rounded-3xl shadow-2xl 
+      h-[80vh] w-full max-w-md mx-auto p-1 rounded-3xl shadow-2xl 
       bg-gradient-to-tl from-blue-100 via-slate-50 to-white
       dark:from-indigo-950 dark:via-slate-900 dark:to-slate-800
       transition-all duration-500 border border-white/60 dark:border-slate-700/50
