@@ -39,11 +39,24 @@ export default function IncomesPage() {
       const data = await parseExcelFile(file);
       setRows(data);
     } catch (error) {
-      alert('解析文件失败，请检查文件格式');
+      alert('File parsing failed. Please check the file format.');
       console.error(error);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // 辅助函数：文件名去后缀 + 智能截断
+  const formatFileName = (name: string) => {
+    // 1. 先去掉后缀 (.xlsx / .csv)
+    const nameNoExt = name.replace(/\.[^/.]+$/, "");
+    
+    // 2. 如果名字太长（超过 20 个字），进行截断
+    if (nameNoExt.length > 20) {
+      return nameNoExt.slice(0, 15) + "...";
+    }
+    
+    return nameNoExt;
   };
 
   // --- UI 部分 ---
@@ -61,7 +74,7 @@ export default function IncomesPage() {
         <div className="flex justify-between items-center mb-2">
            <p className="text-xl font-bold text-blue-900 dark:text-blue-100">Incomes Page</p>
            {/* 小小的状态指示器 */}
-           {fileName && <span className="text-xs text-blue-500/80 truncate max-w-[120px]">{fileName}</span>}
+           {fileName && <span className="text-xs text-blue-500/80 break-all max-w-[120px]">{formatFileName(fileName)}</span>}
         </div>
 
         {/* 核心内容区域 
@@ -89,10 +102,10 @@ export default function IncomesPage() {
                 dark:bg-slate-700 dark:text-blue-300 dark:group-hover:bg-slate-600
               ">
                 {isLoading ? (
-                  <span>⏳ 解析中...</span>
+                  <span>⏳ Parsing...</span>
                 ) : (
                   <>
-                    <span>📂 点击上传账单 (Excel)</span>
+                    <span>📂 Upload Bank Statement (.xlsx)</span>
                   </>
                 )}
               </div>
@@ -121,7 +134,7 @@ export default function IncomesPage() {
               // 空状态
               <div className="h-full flex flex-col items-center justify-center text-blue-400/50 dark:text-slate-500">
                  <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                 <p className="text-sm">暂无数据，请上传文件</p>
+                 <p className="text-md">Please upload a file.</p>
               </div>
             )}
           </div>
