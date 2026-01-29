@@ -8,9 +8,9 @@ import clsx from 'clsx';
 // Depending on the size of the application, this would be stored in a database.
 // 在这里添加或修改导航链接
 const links = [
-  { name: 'Expenses', href: '/money_track/', icon: DocumentDuplicateIcon },
-  { name: 'Incomes', href: '/money_track/income', icon: HomeIcon },
-  { name: 'Auto Track', href: '/money_track/auto_track', icon: UserGroupIcon },
+  { name: 'Expense Tracker', href: '/money_track/', icon: DocumentDuplicateIcon },
+  { name: 'Income Tracker', href: '/money_track/income', icon: HomeIcon },
+  { name: 'Auto Tracker', href: '/money_track/auto_track', icon: UserGroupIcon },
 ];
 
 export default function NavLinks() {

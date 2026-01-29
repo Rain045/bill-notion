@@ -75,7 +75,7 @@ export default function Home() { // 主页
             active:brightness-110
           ">
             <h2 className="text-2xl font-bold mt-2">Money Track</h2>
-            <p className="font-mono text-sm opacity-80">Log an income or expense.</p>
+            <p className="font-mono text-sm opacity-80">Record an income or expense.</p>
           </div>
       </Link>
       
