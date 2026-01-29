@@ -91,7 +91,7 @@ export default function SettingsPage() {
           `}>
             Settings
           </h1>
-          <p className="text-md text-slate-500 dark:text-slate-400 font-medium">
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
             Configure your Notion integrated environment
           </p>
         </div>
@@ -132,7 +132,7 @@ export default function SettingsPage() {
               </button>
             </div>
           </div>
-          <p className="text-sm text-slate-400 pl-1">
+          <p className="text-xs text-slate-400 pl-1">
             This key will be used to access your Workspace data.
           </p>
         </section>
@@ -181,7 +181,7 @@ export default function SettingsPage() {
           {/* 数据库列表 */}
           <div className="flex-grow space-y-2 mt-2 overflow-y-auto max-h-[240px] pr-1">
             {databases.length === 0 ? (
-               <div className="text-center py-8 text-slate-400 text-md italic">
+               <div className="text-center py-8 text-slate-400 text-sm italic">
                 No database configuration is currently available. 
                 <br />
                 Please add it above.
