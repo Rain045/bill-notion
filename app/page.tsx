@@ -131,29 +131,32 @@ export default function Home() { // 主页
         <p className="font-mono text-sm opacity-80">Data analysis and Charting.</p>
       </div>
 
-      {/* 功能卡4 */}
-      <div className="
-        max-w-md              /* 限制最大宽度 */
-        mx-auto               /* 水平居中 */
-        my-5                 /* 上下外边距 */
-        p-8                   /* 内边距 */
-        bg-gradient-to-tr from-blue-00 via-sky-800 to-pink-600 /* 渐变背景 */
-        text-white            /* 字体颜色 */
-        rounded-3xl           /* 超大圆角 */
+      {/* 功能卡4 ：设置*/}
+      <Link href="/settings">
+        <div className="
+          max-w-md              /* 限制最大宽度 */
+          mx-auto               /* 水平居中 */
+          my-5                 /* 上下外边距 */
+          p-8                   /* 内边距 */
+          bg-gradient-to-tr from-blue-00 via-sky-800 to-pink-600 /* 渐变背景 */
+          text-white            /* 字体颜色 */
+          rounded-3xl           /* 超大圆角 */
 
-        /* PC端反馈 */
-        hover:scale-105       /* 悬停放大 */
-        transition-transform  /* 动画过渡 */
-        cursor-pointer        /* 鼠标手型 */
+          /* PC端反馈 */
+          hover:scale-105       /* 悬停放大 */
+          transition-transform  /* 动画过渡 */
+          cursor-pointer        /* 鼠标手型 */
 
-        /* 移动端反馈 */
-        transition-all duration-150 ease-in-out
-        active:scale-95 
-        active:brightness-110
-      ">
-        <h2 className="text-2xl font-bold mt-2">Settings</h2>
-        <p className="font-mono text-sm opacity-80">Configure.</p>
-      </div>
+          /* 移动端反馈 */
+          transition-all duration-150 ease-in-out
+          active:scale-95 
+          active:brightness-110
+        ">
+          <h2 className="text-2xl font-bold mt-2">Settings</h2>
+          <p className="font-mono text-sm opacity-80">Configure.</p>
+        </div>
+      </Link>
+      
     </main>
   );
 }
