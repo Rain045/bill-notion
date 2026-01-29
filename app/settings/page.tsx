@@ -12,29 +12,21 @@ import {
 } from '@heroicons/react/24/outline';
 
 export default function SettingsPage() {
-  // --- 1. 防止 Hydration Mismatch 的关键状态 ---
   const [isMounted, setIsMounted] = useState(false);
-
-  // --- 业务状态 ---
   const [apiKey, setApiKey] = useState('');
   const [showKey, setShowKey] = useState(false);
   const [databases, setDatabases] = useState<{name: string, id: string}[]>([]);
   const [newDbName, setNewDbName] = useState('');
   const [newDbId, setNewDbId] = useState('');
 
-  // --- 2. 初始化加载 ---
   useEffect(() => {
-    // 标记组件已挂载到客户端
     setIsMounted(true);
-    
-    // 安全地读取 LocalStorage (仅在客户端执行)
     const savedKey = localStorage.getItem('notion_api_key');
     const saveddbs = localStorage.getItem('notion_databases');
     if (savedKey) setApiKey(savedKey);
     if (saveddbs) setDatabases(JSON.parse(saveddbs));
   }, []);
 
-  // --- 处理函数 ---
   const handleSaveKey = () => {
     localStorage.setItem('notion_api_key', apiKey);
     alert('Notion API Key Saved!');
@@ -50,13 +42,15 @@ export default function SettingsPage() {
   };
 
   const handleDeleteDatabase = (index: number) => {
-    const updatedList = databases.filter((_, i) => i !== index);
-    setDatabases(updatedList);
-    localStorage.setItem('notion_databases', JSON.stringify(updatedList));
+    // 即使恢复了hover逻辑，保留确认弹窗依然是防误触的好习惯
+    const isConfirmed = window.confirm('Are you sure you want to delete this database mapping?');
+    if (isConfirmed) {
+      const updatedList = databases.filter((_, i) => i !== index);
+      setDatabases(updatedList);
+      localStorage.setItem('notion_databases', JSON.stringify(updatedList));
+    }
   };
 
-  // --- 3. Loading / 骨架屏状态 ---
-  // 如果组件还未挂载，渲染一个简单的占位符，避免服务端和客户端 HTML 不一致
   if (!isMounted) {
     return (
       <div className="h-[80vh] w-full max-w-md mx-auto p-1 rounded-3xl shadow-lg 
@@ -70,7 +64,6 @@ export default function SettingsPage() {
     );
   }
 
-  // --- 4. 真实渲染 (你的代码) ---
   return (
     <div className="
       h-[81vh] w-full max-w-md mx-auto p-1 rounded-3xl shadow-2xl 
@@ -80,10 +73,8 @@ export default function SettingsPage() {
       overflow-hidden flex flex-col
     ">
       
-      {/* 内部滚动容器 */}
       <div className="flex flex-col h-full w-full overflow-y-auto scrollbar-hide p-5">
 
-        {/* 标题区 */}
         <div className="mb-6">
           <h1 className={`text-4xl ${lusitana.className} font-bold mb-1 transition-all
             bg-gradient-to-r from-sky-600 to-indigo-800 bg-clip-text text-transparent
@@ -96,7 +87,7 @@ export default function SettingsPage() {
           </p>
         </div>
 
-        {/* --- 区域 1: API Key 设置 --- */}
+        {/* API Key Section */}
         <section className="mb-6 space-y-3">
           <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-semibold text-md">
             <KeyIcon className="w-4 h-4" />
@@ -104,7 +95,6 @@ export default function SettingsPage() {
           </div>
           
           <div className="relative group">
-            {/* 添加 suppressHydrationWarning 以防止浏览器插件（如密码管理器）修改DOM导致报错 */}
             <input 
               type={showKey ? "text" : "password"}
               value={apiKey}
@@ -139,7 +129,7 @@ export default function SettingsPage() {
 
         <hr className="border-slate-200 dark:border-slate-700/50 mb-6" />
 
-        {/* --- 区域 2: 数据库映射管理 --- */}
+        {/* Database Section */}
         <section className="flex-grow flex flex-col space-y-3">
           <div className="flex items-center justify-between text-slate-700 dark:text-slate-200 font-semibold text-md">
             <div className="flex items-center gap-2">
@@ -151,7 +141,6 @@ export default function SettingsPage() {
             </span>
           </div>
 
-          {/* 添加新条目表单 */}
           <div className="bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-dashed border-sky-200 dark:border-slate-600 flex flex-col gap-2">
             <input 
               type="text" 
@@ -178,7 +167,6 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          {/* 数据库列表 */}
           <div className="flex-grow space-y-2 mt-2 overflow-y-auto max-h-[240px] pr-1">
             {databases.length === 0 ? (
                <div className="text-center py-8 text-slate-400 text-sm italic">
@@ -193,12 +181,21 @@ export default function SettingsPage() {
                     <div className="font-semibold text-sm text-slate-700 dark:text-slate-200 truncate">{db.name}</div>
                     <div className="text-[10px] text-slate-400 font-mono truncate max-w-[180px]">{db.id}</div>
                   </div>
+                  
+                  {/* --- 恢复为原始 hover 逻辑 --- */}
                   <button 
                     onClick={() => handleDeleteDatabase(idx)}
-                    className="text-slate-300 hover:text-red-500 p-1.5 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors opacity-0 group-hover:opacity-100"
+                    className="
+                      text-slate-300 hover:text-red-500 
+                      p-1.5 rounded-lg transition-colors 
+                      hover:bg-red-50 dark:hover:bg-red-900/20 
+                      
+                      opacity-0 group-hover:opacity-100 /* 这里恢复了原始逻辑：平时隐藏，hover时显示 */
+                    "
                   >
                     <TrashIcon className="w-4 h-4" />
                   </button>
+
                 </div>
               ))
             )}
