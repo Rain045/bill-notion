@@ -1,9 +1,7 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
-import Link from 'next/link';
-import { lusitana } from '@/app/ui/fonts';
 import BackNav from '@/app/ui/back-nav';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function DashBoardLayout({ children }: { children: React.ReactNode }) {
   return (
     // 使用 h-dvh 确保在移动端完美适配，禁止最外层滚动
     <main className="h-dvh flex flex-col overflow-hidden">
