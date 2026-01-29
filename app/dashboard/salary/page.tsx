@@ -3,7 +3,7 @@ export default function SalaryPage() {
     <div className="
       h-[81vh] w-full mx-auto p-5 rounded-3xl shadow-lg 
       bg-gradient-to-tl from-blue-100 via-slate-50 to-white
-      dark:from-indigo-900 dark:via-slate-800 dark:to-slate-700
+      dark:from-indigo-950 dark:via-slate-900 dark:to-slate-800
       transition-all duration-500 border border-white/60 dark:border-slate-700/50"
     >
       <div className="flex flex-col h-full">
