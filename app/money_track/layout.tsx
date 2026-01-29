@@ -16,7 +16,7 @@ export default function MoneyTrackLayout({ children }: { children: React.ReactNo
 
             {/* 中间：占 1/3 */}
             <div className="flex justify-center items-center min-w-0">
-                <h1 className="text-xl font-bold text-blue-900/30 dark:text-white/30 mb-0 pt-4 md:pt-4 whitespace-nowrap">
+                <h1 className="text-xl font-bold pl-5 text-blue-900/30 dark:text-white/30 mb-0 pt-4 md:pt-4 whitespace-nowrap">
                     Money Track
                 </h1>
             </div>
