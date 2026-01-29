@@ -53,7 +53,7 @@ export default function SettingsPage() {
 
   if (!isMounted) {
     return (
-      <div className="h-[80vh] w-full max-w-md mx-auto p-1 rounded-3xl shadow-lg 
+      <div className="h-[80vh] w-full mx-auto p-1 rounded-3xl shadow-lg 
         bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
         <div className="p-6 space-y-6 animate-pulse">
            <div className="h-10 w-1/3 bg-slate-200 dark:bg-slate-700 rounded"></div>
@@ -66,7 +66,7 @@ export default function SettingsPage() {
 
   return (
     <div className="
-      h-[80vh] w-full max-w-md mx-auto p-1 rounded-3xl shadow-2xl 
+      h-[80vh] w-full mx-auto p-1 rounded-3xl shadow-2xl 
       bg-gradient-to-tl from-blue-100 via-slate-50 to-white
       dark:from-indigo-950 dark:via-slate-900 dark:to-slate-800
       transition-all duration-500 border border-white/60 dark:border-slate-700/50
@@ -190,7 +190,7 @@ export default function SettingsPage() {
                       p-1.5 rounded-lg transition-colors 
                       hover:bg-red-50 dark:hover:bg-red-900/20 
                       
-                      opacity-0 group-hover:opacity-100 /* 这里恢复了原始逻辑：平时隐藏，hover时显示 */
+                      opacity-100 md:opacity-0 md:group-hover:opacity-100
                     "
                   >
                     <TrashIcon className="w-4 h-4" />
