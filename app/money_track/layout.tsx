@@ -7,10 +7,10 @@ export default function MoneyTrackLayout({ children }: { children: React.ReactNo
     <main className="h-dvh flex flex-col overflow-hidden">
       
         {/* 加上 w-full 确保它占满一行 */}
-        <div className="grid grid-cols-3 w-full items-start pr-4 md:pr-8 bg-red-200">
+        <div className="grid grid-cols-3 w-full items-start pr-4 md:pr-8">
         
             {/* 左侧：占 1/3 */}
-            <div className="flex justify-start min-w-0 bg-red-200">
+            <div className="flex justify-start min-w-0">
                 <BackNav />
             </div>
 
