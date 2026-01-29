@@ -47,7 +47,7 @@ export default function AutoTrackPage() {
   // --- 3. Loading / 骨架屏 (解决服务端渲染不一致问题) ---
   if (!isMounted) {
     return (
-      <div className="h-[81vh] w-full max-w-md mx-auto p-5 rounded-3xl shadow-lg 
+      <div className="h-[80vh] w-full mx-auto p-5 rounded-3xl shadow-lg 
         bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
         {/* 简单的骨架屏占位 */}
         <div className="flex justify-between mb-4">
@@ -61,7 +61,7 @@ export default function AutoTrackPage() {
   // --- 4. 真实渲染 ---
   return (
     <div className="
-      h-[80vh] w-full max-w-md mx-auto p-5 rounded-3xl shadow-lg 
+      h-[80vh] w-full mx-auto p-5 rounded-3xl shadow-lg 
       bg-gradient-to-tl from-blue-100 via-slate-50 to-white
       dark:from-indigo-900 dark:via-slate-800 dark:to-slate-700
       transition-all duration-500 border border-white/60 dark:border-slate-700/50
