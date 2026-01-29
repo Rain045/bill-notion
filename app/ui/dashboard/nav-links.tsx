@@ -9,8 +9,8 @@ import clsx from 'clsx';
 // 在这里添加或修改导航链接
 const links = [
   { name: 'Overview', href: '/dashboard', icon: HomeIcon },
-  { name: 'Incomes', href: '/dashboard/incomes', icon: DocumentDuplicateIcon },
   { name: 'Expenses', href: '/dashboard/expenses', icon: UserGroupIcon },
+  { name: 'Incomes', href: '/dashboard/incomes', icon: DocumentDuplicateIcon },
   { name: 'Salary', href: '/dashboard/salary', icon: CalculatorIcon },
 ];
 
@@ -39,7 +39,7 @@ export default function NavLinks() {
             {/* 2. 关键：给图标指定颜色，并增加 strokeWidth 让线条更粗一点（更适合移动端） */}
             <LinkIcon className="w-6 h-6 text-current stroke-[2px]" />
             
-            <p className="hidden md:block">{link.name}</p>
+            <span className="hidden md:block">{link.name}</span>
           </Link>
         );
       })}
