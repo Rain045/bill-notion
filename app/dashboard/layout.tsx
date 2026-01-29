@@ -16,7 +16,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
             {/* 中间：占 1/3 */}
             <div className="flex justify-center items-center min-w-0">
-                <h1 className="text-xl font-bold text-blue-900 dark:text-white mb-0 pt-4 md:pt-4 whitespace-nowrap">
+                <h1 className="text-xl font-bold text-blue-900/30 dark:text-white/30 mb-0 pt-4 md:pt-4 whitespace-nowrap">
                 Dashboard
                 </h1>
             </div>
