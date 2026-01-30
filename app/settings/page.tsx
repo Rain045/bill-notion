@@ -80,12 +80,12 @@ export default function SettingsPage() {
     // 3. 处理统一返回结果
     if (result.success) {
       // 成功 (200)
-      alert(`✅ 连接成功 (200 OK)\n成功获取 Database ID: ${result.data}`);
+      alert(`✅️ Test Successfully!\n\nYour Database ID is: ${result.data}`);
     } else {
       // 失败 (400, 401, 403, 500 等)
       // 直接显示 helper 中定义好的友好提示
       console.error(result.error?.rawMessage); // 在控制台打印原始错误供开发者调试
-      alert(`❌ 连接失败\n\n${result.error?.rawMessage}`);
+      alert(`❌️ Test Failed!\n\n${result.error?.rawMessage}`);
     }
   };
 
@@ -190,7 +190,7 @@ export default function SettingsPage() {
                     `}
                 >
                     <BoltIcon className={`w-3 h-3 ${isTesting ? 'animate-pulse' : ''}`} />
-                    {isTesting ? 'TESTING...' : 'TEST API'}
+                    {isTesting ? 'TESTING...' : 'TEST'}
                 </button>
 
                 <span className="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full text-slate-500 dark:text-slate-300">
