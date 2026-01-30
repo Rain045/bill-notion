@@ -1,14 +1,17 @@
+// settings/page.tsx
 'use client'; 
 
 import { useState, useEffect } from 'react';
 import { lusitana } from '@/app/ui/fonts';
+import { NotionShakeHand } from '@/lib/notion_shake_hand'; // 导入 Server Action
 import { 
   KeyIcon, 
   CircleStackIcon, 
   PlusIcon, 
   TrashIcon, 
   EyeIcon, 
-  EyeSlashIcon
+  EyeSlashIcon,
+  BoltIcon // 新增图标
 } from '@heroicons/react/24/outline';
 
 export default function SettingsPage() {
@@ -18,6 +21,9 @@ export default function SettingsPage() {
   const [databases, setDatabases] = useState<{name: string, id: string}[]>([]);
   const [newDbName, setNewDbName] = useState('');
   const [newDbId, setNewDbId] = useState('');
+  
+  // 新增：测试加载状态
+  const [isTesting, setIsTesting] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -42,12 +48,44 @@ export default function SettingsPage() {
   };
 
   const handleDeleteDatabase = (index: number) => {
-    // 即使恢复了hover逻辑，保留确认弹窗依然是防误触的好习惯
     const isConfirmed = window.confirm('Are you sure you want to delete this database mapping?');
     if (isConfirmed) {
       const updatedList = databases.filter((_, i) => i !== index);
       setDatabases(updatedList);
       localStorage.setItem('notion_databases', JSON.stringify(updatedList));
+    }
+  };
+
+  // 新增：连接测试逻辑
+  const handleConnectivityTest = async () => {
+    // 1. 基础校验
+    if (!apiKey) {
+      alert('未保存 API KEY');
+      return;
+    }
+    const testDb = databases.find(db => db.name === 'Test' || db.name === 'TEST');
+    if (!testDb) {
+      alert('请注册名为 TEST 的 Database ID');
+      return;
+    }
+
+    // 2. 开始测试
+    setIsTesting(true);
+    
+    // 调用 Server Action
+    const result = await NotionShakeHand(apiKey, testDb.id);
+
+    setIsTesting(false);
+
+    // 3. 处理统一返回结果
+    if (result.success) {
+      // 成功 (200)
+      alert(`✅ 连接成功 (200 OK)\n成功获取 Database ID: ${result.data}`);
+    } else {
+      // 失败 (400, 401, 403, 500 等)
+      // 直接显示 helper 中定义好的友好提示
+      console.error(result.error?.rawMessage); // 在控制台打印原始错误供开发者调试
+      alert(`❌ 连接失败\n\n${result.error?.rawMessage}`);
     }
   };
 
@@ -136,9 +174,29 @@ export default function SettingsPage() {
               <CircleStackIcon className="w-4 h-4" />
               <h2>Database Registry</h2>
             </div>
-            <span className="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full text-slate-500 dark:text-slate-300">
-              {databases.length}
-            </span>
+            
+            {/* 新增：功能按钮和计数器区域 */}
+            <div className="flex items-center gap-2">
+                <button
+                    onClick={handleConnectivityTest}
+                    disabled={isTesting}
+                    className={`
+                        flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wide
+                        transition-all duration-300 shadow-sm border border-transparent
+                        ${isTesting 
+                            ? 'bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-500' 
+                            : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200 hover:shadow-md hover:border-emerald-300 dark:bg-emerald-900/30 dark:text-emerald-400 dark:hover:bg-emerald-800/50 dark:hover:border-emerald-700'
+                        }
+                    `}
+                >
+                    <BoltIcon className={`w-3 h-3 ${isTesting ? 'animate-pulse' : ''}`} />
+                    {isTesting ? 'TESTING...' : 'CONNECTIVITY TEST'}
+                </button>
+
+                <span className="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full text-slate-500 dark:text-slate-300">
+                {databases.length}
+                </span>
+            </div>
           </div>
 
           <div className="bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-dashed border-sky-200 dark:border-slate-600 flex flex-col gap-2">
@@ -182,7 +240,6 @@ export default function SettingsPage() {
                     <div className="text-[10px] text-slate-400 font-mono truncate max-w-[180px]">{db.id}</div>
                   </div>
                   
-                  {/* --- 恢复为原始 hover 逻辑 --- */}
                   <button 
                     onClick={() => handleDeleteDatabase(idx)}
                     className="
