@@ -181,7 +181,7 @@ export default function SettingsPage() {
                     onClick={handleConnectivityTest}
                     disabled={isTesting}
                     className={`
-                        flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wide
+                        flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-semibold tracking-wide
                         transition-all duration-300 shadow-sm border border-transparent
                         ${isTesting 
                             ? 'bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-500' 
@@ -190,7 +190,7 @@ export default function SettingsPage() {
                     `}
                 >
                     <BoltIcon className={`w-3 h-3 ${isTesting ? 'animate-pulse' : ''}`} />
-                    {isTesting ? 'TESTING...' : 'CONNECTIVITY TEST'}
+                    {isTesting ? 'TESTING...' : 'TEST API'}
                 </button>
 
                 <span className="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full text-slate-500 dark:text-slate-300">
